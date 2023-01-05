@@ -86,8 +86,8 @@ func main() {
 
 	fmt.Scan(&leftValue, &operation, &rightValue)
 
-	Calculator := Calculator{operation}
-	result, error := Calculator.calculate(leftValue, rightValue)
+	calculator := Calculator{operation}
+	result, error := calculator.calculate(leftValue, rightValue)
 
 	if error != nil {
 		fmt.Print(error)
