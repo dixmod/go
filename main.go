@@ -44,9 +44,9 @@ func (calculator *Calculator) calculate(leftValue int, rightValue int) (int, err
 		return 0, errors.New("Unknown operation " + calculator.operation)
 	}
 
-	_, ok := interface{}(operator).(Division)
+	_, isDivision := interface{}(operator).(Division)
 
-	if true == ok && 0 == rightValue {
+	if true == isDivision && 0 == rightValue {
 		return 0, errors.New("division by 0")
 	}
 
