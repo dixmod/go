@@ -5,6 +5,25 @@ import (
 	"fmt"
 )
 
+func main() {
+	var (
+		leftValue  int
+		operation  string
+		rightValue int
+	)
+
+	fmt.Scan(&leftValue, &operation, &rightValue)
+
+	calculator := Calculator{operation}
+	result, error := calculator.calculate(leftValue, rightValue)
+
+	if error != nil {
+		fmt.Print(error)
+	} else {
+		fmt.Print(result)
+	}
+}
+
 type OperatorResolver struct {
 }
 
@@ -75,23 +94,4 @@ type Division struct{}
 
 func (Division) Apply(leftValue int, rightValue int) int {
 	return leftValue / rightValue
-}
-
-func main() {
-	var (
-		leftValue  int
-		operation  string
-		rightValue int
-	)
-
-	fmt.Scan(&leftValue, &operation, &rightValue)
-
-	calculator := Calculator{operation}
-	result, error := calculator.calculate(leftValue, rightValue)
-
-	if error != nil {
-		fmt.Print(error)
-	} else {
-		fmt.Print(result)
-	}
 }
