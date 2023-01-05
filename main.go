@@ -17,7 +17,7 @@ func main() {
 	calculator := Calculator{operation}
 	result, error := calculator.calculate(leftValue, rightValue)
 
-	if error != nil {
+	if nil != error {
 		fmt.Print(error)
 	} else {
 		fmt.Print(result)
